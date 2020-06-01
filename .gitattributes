@@ -1,18 +1,3 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-var tree_util = require('tree-util')
-
-var items = [{ id : 1 }, { id : 2, parentid : 1 }, { id : 3, parentid : 1 },
-             { id : 4, parentid : 1 }, { id : 5, parentid : 3 }];
-             
-var standardConfig =  { id : 'id', parentid : 'parentid'};
-
-var trees = tree_util.buildTrees(items, standardConfig);
-
-var tree = trees[0];
-var rootNode = tree.rootNode;
-var leafNode = tree.getNodeById(5);
-
-var isDescendant = leafNode.isDescendantOf(rootNode); //returns true
-var isAncestor = rootNode.isAncestorOf(leafNode); //returns true
